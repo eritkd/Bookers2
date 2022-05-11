@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/0cccf796a3.js" crossorigin="anonymous"></script>
   </head>
   
   <body>
@@ -21,18 +22,45 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            
+          <div class="navbar-nav ml-auto">
+          <i class="fa-solid fa-house-chimney" style="color: white;"></i></div>
+          <!--<svg class="svg-inline--fa fa-home fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg>-->
+            
+          <!--</svg>-->
+          
           <li>
-            <a class="nav-link text-light" href="/uses">Home</a>
+            <a class="nav-link text-light" href="/users">Home</a>
           </li>
-          <li>
-            <a class="nav-link text-light" href="/uses">Users</a>
+          
+          <% if user_signed_in? %>
+          
+          <li class="nav-item">
+            <%= link_to "Users", books_path, class: 'nav-link text-light' %>
           </li>
-          <li>
-            <a class="nav-link text-light" href="/books">Books</a>
+          <li class="nav-item">
+            <%= link_to "Books", books_path, class: 'nav-link text-light' %>
           </li>
-          <li>
-            <a class="nav-link text-light" href="/uses/sign_out">Log out</a>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
           </li>
+          
+          <% else %>
+          
+          <li class="nav-item">
+            <%= link_to "About", books_path, class: 'nav-link text-light' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+          </li>
+          
+          <% end %>
+          
+          </ul>
         </div>
         </div>
       </nav>
@@ -40,10 +68,35 @@
     
     <main>
       
-      
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+          <h1>welcome to <strong>Bookers!</strong>
+          </h1>
+          <p>In <strong>Bookers,</strong></p>
+          <p>you can share and exchange your opinions,inpressions,and emotions</p>
+          <p>about various books!</p>
+          <div class="btn-wrapper col-10 mx-auto">
+            <div class="row"><a class="btn btn-info btn-sm btn-block mb-3 sign_in" href="/users/sign_in">Log in</a></div>
+            <div class="row"><a class="btn btn-success btn-sm btn-block sign_up" href="/users/sign_up">Sign up</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </main>
+
+  <footer>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
     
   </body>
+
 
   <!--<body>-->
   <!--  <header>-->
