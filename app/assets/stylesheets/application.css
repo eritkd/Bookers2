@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+btn_success {
+    color: white;
+    background-color: #28a745;
+    border-color: #28a745;
+}
